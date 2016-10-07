@@ -16,8 +16,15 @@ const params = {
     bar: chocolate
 }
 
-const queryString = qs.stringify(params);
+qs.stringify(params);
 // 'food=pizza&bar=chocolate'
+
+// Also add options!
+
+const options = { prefix: '?'};
+
+qs.stringify(params, options);
+// '?food=pizza&bar=chocolate'
 ```
 
 ## Issues?
