@@ -1,0 +1,27 @@
+{
+  "name": "query-stringifier",
+  "version": "0.0.1",
+  "description": "A small library for build query strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "keywords": [
+    "query",
+    "string",
+    "query-string",
+    "stringify",
+    "stringifier",
+    "parse",
+    "qs",
+    "sql",
+    "querystring",
+    "executable",
+    "string"
+  ],
+  "author": "Josh Ghent",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "3.1.0"
+  }
+}
