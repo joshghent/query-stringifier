@@ -1,4 +1,5 @@
 # Query-Stringifier
+A small library for build query strings
 
 ## Install
 ``` bash
