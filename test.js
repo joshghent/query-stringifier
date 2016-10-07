@@ -8,9 +8,9 @@ describe('query-stringifier', function () {
                 food : 'pizza',
                 bar : 'chocolate'
             };
-            var queryString = qs.stringify(obj);
+            var queryString = qs.stringify(obj, { prefix: '#'});
 
-            expect(queryString).to.equal('food=pizza&bar=chocolate');
+            expect(queryString).to.equal('#food=pizza&bar=chocolate');
         });
     });
 });
