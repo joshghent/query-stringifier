@@ -1,3 +1,5 @@
+'use strict';
+
 // Create our constructor
 const QueryString = function () {};
 
