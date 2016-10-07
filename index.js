@@ -5,7 +5,11 @@ const QueryString = function () {};
 // Arguments:
 //  @params - OBJECT - An object of parameters to be built into a query string
 QueryString.prototype.stringify = function (params, options) {
-    const prefix = options.prefix || '';
+    if (options === undefined) {
+        options = {
+            prefix: ''
+        };
+    }
 
     const queryStringArray = [];
 
@@ -19,7 +23,7 @@ QueryString.prototype.stringify = function (params, options) {
         return '';
     }
 
-    return prefix + queryStringArray.join('&');
+    return options.prefix + queryStringArray.join('&');
 };
 
 // Export the module
