@@ -21,10 +21,15 @@ qs.stringify(params);
 
 // Also add options!
 
-const options = { prefix: '?'};
+const options = { prefix: '?' };
 
 qs.stringify(params, options);
 // '?food=pizza&bar=chocolate'
+
+
+// Parse query strings into objects
+qs.parse('?food=pizza&bar=chocolate');
+// { food: pizza, bar: chocolate }
 ```
 
 ## Issues?
