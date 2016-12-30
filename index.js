@@ -36,8 +36,24 @@ QueryString.prototype.stringify = function (params, options) {
     return options.prefix + queryStringArray.join('&');
 };
 
-QueryString.prototype.parse = function () {
+// Arguments:
+// @params - STRING - The query string to parse into an object
+QueryString.prototype.parse = function (queryStr) {
+    let obj = Object.create(null);
 
+    if (typeof queryStr !== 'string') {
+        return obj;
+    }
+
+    queryStr = queryStr.trim().replace(/^(\?|&|#)/, '');
+
+    queryStr.split('&').forEach((param) => {
+        const components = param.split('=');
+
+        obj[decodeURIComponent(components[0])] = decodeURIComponent(components[1]);
+    });
+
+    return obj;
 }
 
 // Export the module
