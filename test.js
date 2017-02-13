@@ -18,7 +18,16 @@ describe('query-stringifier', function () {
             var queryString = qs.stringify(obj);
 
             expect(queryString).to.equal('food=pizza&bar=chocolate');
-        })
+        });
+        it('a value can be an array that that gets to a csv', function() {
+            var test3 = {
+                'column': ['a', 'b', 'c'],
+                'anotherCol': 2
+            };
+            var queryString = qs.stringify(test3);
+
+            expect(queryString).to.equal('column=a,b,c&anotherCol=2');
+        });
     });
 
     describe('#parse', function () {
