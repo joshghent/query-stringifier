@@ -22,8 +22,13 @@ QueryString.prototype.stringify = function (params, options) {
     // Iterate through the parameters object that was passed to the method
     for (let key in params) {
         if (params.hasOwnProperty(key)) {
-            // Add the URI encoded key and value to the array separated by an equals
-            queryStringArray.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]))
+            // If the element is an array then loop through it
+            if (Array.isArray(params[key]) === true) {
+                queryStringArray.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key].join(',')));
+            } else {
+                // Add the URI encoded key and value to the array separated by an equals
+                queryStringArray.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
+            }
         }
     }
 

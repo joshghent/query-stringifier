@@ -26,7 +26,7 @@ describe('query-stringifier', function () {
             };
             var queryString = qs.stringify(test3);
 
-            expect(queryString).to.equal('column=a,b,c&anotherCol=2');
+            expect(queryString).to.equal('column=' + encodeURIComponent('a,b,c') + '&anotherCol=2');
         });
     });
 
