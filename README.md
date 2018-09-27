@@ -1,4 +1,4 @@
-# Query-Stringifier [![Build Status](https://travis-ci.org/joshghent/query-stringifier.svg?branch=master)](https://travis-ci.org/joshghent/query-stringifier) [![npm version](https://badge.fury.io/js/query-stringifier.svg)](https://badge.fury.io/js/query-stringifier) [![devDependencies](https://david-dm.org/joshghent/query-stringifier.svg)]
+# Query-Stringifier [![Build Status](https://travis-ci.org/joshghent/query-stringifier.svg?branch=master)](https://travis-ci.org/joshghent/query-stringifier) [![npm version](https://badge.fury.io/js/query-stringifier.svg)](https://badge.fury.io/js/query-stringifier) [devDependencies](https://david-dm.org/joshghent/query-stringifier.svg)
 A small library for build query strings
 
 ## Install
