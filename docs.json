@@ -1,0 +1,8 @@
+{
+    "opts": {
+        "template": "node_modules/tui-jsdoc-template"
+    },
+    "templates": {
+        "name": "QueryString"
+    }
+}

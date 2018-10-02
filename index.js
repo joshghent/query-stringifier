@@ -1,13 +1,19 @@
 'use strict';
 
-// Create our constructor
+/**
+ * A small library for build query strings
+ * @class
+ */
 const QueryString = function () {};
 
-// Add the query stringify method
-// Arguments:
-//  @params - OBJECT - An object of parameters to be built into a query string
+/**
+ * Add the query stringify method
+ * @param {object} params - Parameters to be built into a query string
+ * @param {object} options - Optional settings
+ * @property {string} options.prefix - The prefix that should be joined to the resulted query string
+ * @returns {string} Returns query-stringified object
+ */
 QueryString.prototype.stringify = function (params, options) {
-
     // If the options parameter was not defined then create it with some default values.
     if (options === undefined) {
         options = {
@@ -41,8 +47,11 @@ QueryString.prototype.stringify = function (params, options) {
     return options.prefix + queryStringArray.join('&');
 };
 
-// Arguments:
-// @params - STRING - The query string to parse into an object
+/**
+ * Add the query stringify method
+ * @param {string | any} queryStr - The query string to parse into an object. If any type other than string, just returns it
+ * @returs {object} Returns query-string as object
+ */
 QueryString.prototype.parse = function (queryStr) {
     let obj = Object.create(null);
 
