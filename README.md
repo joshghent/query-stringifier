@@ -3,7 +3,7 @@ A small library for build query strings
 
 ## Install
 ``` bash
-npm install query-stringifier
+$ npm install query-stringifier
 ```
 
 ## Usage
@@ -12,8 +12,8 @@ npm install query-stringifier
 const qs = require('query-stringifier');
 
 const params = {
-    food: pizza,
-    bar: chocolate
+    food: 'pizza',
+    bar: 'chocolate'
 }
 
 qs.stringify(params);
@@ -32,5 +32,26 @@ qs.parse('?food=pizza&bar=chocolate');
 // { food: pizza, bar: chocolate }
 ```
 
+## Tests
+
+```
+$ npm test
+```
+
+## Documentation
+
+If you ever edit the documentation and wants to generate a new version of it just run the command:
+
+```
+$ npm run docs
+```
+
+Commit your changes and push them to master. Github pages will update the page automatically.
+
 ## Issues?
 Go [here](https://github.com/joshghent/query-stringifier/issues)
+
+
+## Contributing
+
+Insterested to help? Just follow our [Contribution Guide](https://github.com/joshghent/query-stringifier/blob/master/CONTRIBUTING.md).
