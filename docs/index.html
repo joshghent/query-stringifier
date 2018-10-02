@@ -32,7 +32,7 @@
         <ul></ul>
     </div>
     
-    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="QueryString.html">QueryString</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="QueryString_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="QueryString.html#parse">parse</a></li><li><a href="QueryString.html#stringify">stringify</a></li></ul></div></li></ul></div>
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="QueryString.html">QueryString</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="QueryString_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="QueryString.html#extract">extract</a></li><li><a href="QueryString.html#parse">parse</a></li><li><a href="QueryString.html#stringify">stringify</a></li></ul></div></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -74,10 +74,13 @@ const options = { prefix: '?' };
 qs.stringify(params, options);
 // '?food=pizza&bar=chocolate'
 
-
 // Parse query strings into objects
 qs.parse('?food=pizza&bar=chocolate');
-// { food: pizza, bar: chocolate }</code></pre><h2>Tests</h2><pre class="prettyprint source"><code>$ npm test</code></pre><h2>Documentation</h2><p>You have a look at the documentation <a href="https://joshghent.github.io/query-stringifier/">here</a>.</p>
+// { food: pizza, bar: chocolate }
+
+// Extract query string from url
+qs.extract('http://test.com?food=pizza&bar=chocolate');
+// food=pizza&bar=chocolate</code></pre><h2>Tests</h2><pre class="prettyprint source"><code>$ npm test</code></pre><h2>Documentation</h2><p>You have a look at the documentation <a href="https://joshghent.github.io/query-stringifier/">here</a>.</p>
 <p>If you ever edit the documentation and wants to generate a new version of it just run the command:</p>
 <pre class="prettyprint source"><code>$ npm run docs</code></pre><p>Commit your changes and push them to master. Github pages will update the page automatically.</p>
 <h2>Issues?</h2><p>Go <a href="https://github.com/joshghent/query-stringifier/issues">here</a></p>
