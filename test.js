@@ -62,11 +62,18 @@ describe('query-stringifier', function () {
     });
 
     describe('#extract', function () {
-        it('exract the query string of the url', function() {
+        it('extract the query string of the url', function() {
             var url = 'www.dummyurl.com?firstqueryparam=first&secondqueryparam=second';
             var result = qs.extract(url);
 
             expect(result).to.equal('firstqueryparam=first&secondqueryparam=second');
+        });
+
+        it('should return empty if there is no query string', function() {
+            var url = 'www.dummyurl.com';
+            var result = qs.extract(url);
+
+            expect(result).to.equal('');
         });
     });
 

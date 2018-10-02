@@ -26,10 +26,13 @@ const options = { prefix: '?' };
 qs.stringify(params, options);
 // '?food=pizza&bar=chocolate'
 
-
 // Parse query strings into objects
 qs.parse('?food=pizza&bar=chocolate');
 // { food: pizza, bar: chocolate }
+
+// Extract query string from url
+qs.extract('http://test.com?food=pizza&bar=chocolate');
+// food=pizza&bar=chocolate
 ```
 
 ## Tests

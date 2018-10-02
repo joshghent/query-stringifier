@@ -94,8 +94,18 @@ QueryString.prototype.parse = function (queryStr) {
     return obj;
 }
 
+/**
+ * Extract the query string sentence from any url. If there is no query string, empty string should be returned.
+ * @param {string} url - url which contains
+ * @returns {string} Extracted query string from url
+ */
 QueryString.prototype.extract = function (url) {
-    return url.substring(url.indexOf('?') + 1);
+    const queryStringPosition = url.indexOf('?')
+    const isThereQueryString = queryStringPosition > -1
+
+    if (!isThereQueryString) return ''
+
+    return url.substring(queryStringPosition + 1);
 }
 
 // Export the module
