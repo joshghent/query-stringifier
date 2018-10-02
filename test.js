@@ -45,5 +45,19 @@ describe('query-stringifier', function () {
             expect(parsed).to.have.property('foo', 'bar');
             expect(parsed).to.have.property('thing', 'thung');
         });
+        it('converts an query string with arrays', function () {
+            var parsed = qs.parse('&arr[]=1&arr[]=2&arr[]=3');
+
+            expect(parsed).to.be.an('object');
+            expect(parsed).to.have.keys(['arr']);
+            expect(parsed).to.deep.equal({ arr: ['1', '2', '3'] });
+        });
+        it('converts an query string with arrays and indexes', function () {
+            var parsed = qs.parse('&arr[2]=1&arr[0]=2&arr[1]=3');
+
+            expect(parsed).to.be.an('object');
+            expect(parsed).to.have.keys(['arr']);
+            expect(parsed).to.deep.equal({ arr: ['2', '3', '1'] });
+        });
     });
 });
