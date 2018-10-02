@@ -61,5 +61,9 @@ QueryString.prototype.parse = function (queryStr) {
     return obj;
 }
 
+QueryString.prototype.extract = function (url) {
+    return url.substring(url.indexOf('?') + 1);
+}
+
 // Export the module
 module.exports = new QueryString();

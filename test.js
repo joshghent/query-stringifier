@@ -46,4 +46,25 @@ describe('query-stringifier', function () {
             expect(parsed).to.have.property('thing', 'thung');
         });
     });
+
+    describe('#extract', function () {
+        it('exract the query string of the url', function() {
+            var url = 'www.dummyurl.com?firstqueryparam=first&secondqueryparam=second';
+            var result = qs.extract(url);
+
+            expect(result).to.equal('firstqueryparam=first&secondqueryparam=second');
+        });
+    });
+
+    describe('#extract/#parse', function() {
+        it('extract the query string of the url and parses it', function () {
+            var url = 'www.dummyurl.com?firstqueryparam=first&secondqueryparam=second';
+            var result = qs.parse(qs.extract(url));
+
+            expect(result).to.be.an('object');
+            expect(result).to.have.property('firstqueryparam', 'first');
+            expect(result).to.have.property('secondqueryparam', 'second');
+        });
+    });
+
 });
