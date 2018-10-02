@@ -50,7 +50,7 @@ QueryString.prototype.stringify = function (params, options) {
 /**
  * Add the query stringify method
  * @param {string | any} queryStr - The query string to parse into an object. If any type other than string, just returns it
- * @returs {object} Returns query-string as object
+ * @returns {object} Returns query-string as object
  */
 QueryString.prototype.parse = function (queryStr) {
     let obj = Object.create(null);
