@@ -40,6 +40,8 @@ $ npm test
 
 ## Documentation
 
+You have a look at the documentation [here](https://joshghent.github.io/query-stringifier/).
+
 If you ever edit the documentation and wants to generate a new version of it just run the command:
 
 ```
