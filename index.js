@@ -63,11 +63,39 @@ QueryString.prototype.parse = function (queryStr) {
 
     queryStr.split('&').forEach((param) => {
         const components = param.split('=');
+        const value = decodeURIComponent(components[1]);
+        var key = decodeURIComponent(components[0]);
 
-        obj[decodeURIComponent(components[0])] = decodeURIComponent(components[1]);
+        //Is the query param an array?
+        if (key.search(/\[([0-9]*)\]/) !== -1) {
+            const indexOfArray = key.slice(-2) !== '[]' ? key.charAt(key.length - 2) : undefined;
+            key = key.slice(0, key.indexOf('['));
+
+            //Does the array already exist in the object
+            if (obj[key]) {
+                if (indexOfArray) {
+                    obj[key][indexOfArray] = value;
+                } else {
+                    obj[key].push(value);
+                }
+            } else {
+                if (indexOfArray) {
+                    obj[key] = [];
+                    obj[key][indexOfArray] = value;
+                } else {
+                    obj[key] = [value];
+                }
+            }
+        } else {
+            obj[key] = value;
+        }
     });
 
     return obj;
+}
+
+QueryString.prototype.extract = function (url) {
+    return url.substring(url.indexOf('?') + 1);
 }
 
 // Export the module
