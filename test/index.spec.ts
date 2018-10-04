@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var qs = require('./');
+var qs = require('./index.ts');
 
 var obj = {
     food : 'pizza',

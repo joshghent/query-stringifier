@@ -1,52 +1,4 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Source: index.js | QueryString</title>
-
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
-
-    
-</head>
-<body>
-<nav class="lnb" id="lnb">
-    <div class="logo" style="">
-        
-            <img src="img/toast-ui.png" width="100%" height="100%">
-        
-    </div>
-    <div class="title">
-        <h1><a href="index.html" class="link">QueryString</a></h1>
-        
-    </div>
-    <div class="search-container" id="search-container">
-        <input type="text" placeholder="Search">
-        <ul></ul>
-    </div>
-    
-    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="QueryString.html">QueryString</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="QueryString_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="QueryString.html#.extract">extract</a></li><li><a href="QueryString.html#.parse">parse</a></li><li><a href="QueryString.html#.stringify">stringify</a></li></ul></div></li></ul></div>
-</nav>
-<div id="resizer"></div>
-
-<div class="main" id="main">
-    
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>"use strict";
+"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * A small library for build query strings
@@ -82,7 +34,7 @@ class QueryString {
             return '';
         }
         // Otherwise return the query string prefixed with the options.prefix
-        return options.prefix + queryStringArray.join('&amp;');
+        return options.prefix + queryStringArray.join('&');
     }
     /**
      * Add the query stringify method
@@ -94,8 +46,8 @@ class QueryString {
         if (typeof queryStr !== 'string') {
             return obj;
         }
-        queryStr = queryStr.trim().replace(/^(\?|&amp;|#)/, '');
-        queryStr.split('&amp;').forEach((param) => {
+        queryStr = queryStr.trim().replace(/^(\?|&|#)/, '');
+        queryStr.split('&').forEach((param) => {
             const components = param.split('=');
             const value = decodeURIComponent(components[1]);
             var key = decodeURIComponent(components[0]);
@@ -142,33 +94,4 @@ class QueryString {
     }
 }
 exports.default = QueryString;
-//# sourceMappingURL=index.js.map</code></pre>
-        </article>
-    </section>
-
-
-
-
-</div>
-
-<footer>
-    <img class="logo" src="img/toast-ui.png" style="">
-    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
-</footer>
-<script>prettyPrint();</script>
-<script src="scripts/jquery.min.js"></script>
-<script src="scripts/tui-doc.js"></script>
-<script src="scripts/linenumber.js"></script>
-
-    <script>
-        var id = '_sub'.replace(/"/g, '_');
-        var selectedApi = document.getElementById(id); // do not use jquery selector
-        var $selectedApi = $(selectedApi);
-
-        $selectedApi.removeClass('hidden');
-        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
-        showLnbApi();
-    </script>
-
-</body>
-</html>
+//# sourceMappingURL=index.js.map
