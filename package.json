@@ -3,7 +3,7 @@
   "version": "1.3.0",
   "description": "A small library for build query strings",
   "main": "dist/index.js",
-  "types" : "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "docs": "jsdoc ./dist/index.js -d docs -c docs.json -R README.md",

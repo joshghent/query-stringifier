@@ -103,4 +103,4 @@ class QueryString {
     }
 }
 
-export default QueryString;
+module.exports = QueryString;

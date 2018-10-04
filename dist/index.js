@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * A small library for build query strings
  * @class
@@ -93,5 +92,5 @@ class QueryString {
         return url.substring(queryStringPosition + 1);
     }
 }
-exports.default = QueryString;
+module.exports = QueryString;
 //# sourceMappingURL=index.js.map

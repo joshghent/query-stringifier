@@ -27,4 +27,3 @@ declare class QueryString {
      */
     static extract(url: string): string;
 }
-export default QueryString;
