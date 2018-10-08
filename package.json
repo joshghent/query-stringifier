@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "docs": "jsdoc ./dist/index.js -d docs -c docs.json -R README.md",
+    "docs": "typedoc index.ts --target ES6 --mode file --out docs",
     "prepublish": "npm run build",
     "test": "mocha test/index.spec.ts",
     "test:coverage": "nyc --reporter=html --reporter=text mocha test/index.spec.ts"
@@ -32,12 +32,11 @@
     "@types/node": "^10.11.3",
     "chai": "^4.2.0",
     "husky": "^1.1.0",
-    "jsdoc": "^3.5.5",
     "mocha": "^3.5.3",
     "nyc": "^13.0.1",
     "source-map-support": "^0.5.9",
     "ts-node": "^7.0.1",
-    "tui-jsdoc-template": "^1.2.2",
+    "typedoc": "^0.12.0",
     "typescript": "^3.1.1",
     "typings": "^2.1.1"
   },
