@@ -45,7 +45,7 @@ describe('query-stringifier', function () {
             expect(parsed).to.have.property('foo', 'bar');
             expect(parsed).to.have.property('thing', 'thung');
         });
-        it('converts an query string with arrays', function () {
+        it('converts an query string with arraeys', function () {
             var parsed = qs.parse('&arr[]=1&arr[]=2&arr[]=3');
 
             expect(parsed).to.be.an('object');
@@ -59,6 +59,12 @@ describe('query-stringifier', function () {
             expect(parsed).to.have.keys(['arr']);
             expect(parsed).to.deep.equal({ arr: ['2', '3', '1'] });
         });
+        it.only('converts query string with duplicate keys', function() {
+            var parsed = qs.parse('itemIds=1&itemIds=2'); 
+            expect(parsed).to.be.an('object'); 
+            expect(parsed).to.have.keys(['itemIds']); 
+            expect(parsed).to.deep.equal({ itemIds: ['1', '2'] })
+        })
     });
 
     describe('#extract', function () {
