@@ -45,7 +45,7 @@ describe('query-stringifier', function () {
             expect(parsed).to.have.property('foo', 'bar');
             expect(parsed).to.have.property('thing', 'thung');
         });
-        it('converts an query string with arraeys', function () {
+        it('converts an query string with arrays', function () {
             var parsed = qs.parse('&arr[]=1&arr[]=2&arr[]=3');
 
             expect(parsed).to.be.an('object');
