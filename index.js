@@ -84,10 +84,24 @@ QueryString.prototype.parse = function (queryStr) {
                     obj[key][indexOfArray] = value;
                 } else {
                     obj[key] = [value];
-                }
+                }   
             }
         } else {
-            obj[key] = value;
+            // Check if the key is already in the object 
+            if (Object.keys(obj).indexOf(key) > -1) {
+                if (Array.isArray(obj[key])) {
+                    obj[key].push(value); 
+                } else {
+                    let newArray = []; 
+                    newArray.push(obj[key]); 
+                    newArray.push(value);
+                    obj[key] = newArray; 
+                }
+
+            } else {
+                obj[key] = value;
+            }
+            
         }
     });
 

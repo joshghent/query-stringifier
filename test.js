@@ -59,6 +59,12 @@ describe('query-stringifier', function () {
             expect(parsed).to.have.keys(['arr']);
             expect(parsed).to.deep.equal({ arr: ['2', '3', '1'] });
         });
+        it('converts query string with duplicate keys', function() {
+            var parsed = qs.parse('itemIds=1&itemIds=2'); 
+            expect(parsed).to.be.an('object'); 
+            expect(parsed).to.have.keys(['itemIds']); 
+            expect(parsed).to.deep.equal({ itemIds: ['1', '2'] })
+        })
     });
 
     describe('#extract', function () {
