@@ -1,0 +1,19 @@
+### folders
+node_modules
+scripts
+test
+.idea
+.vscode
+coverage
+.nyc_output
+docs
+
+### files
+index.ts
+.gitignore
+.npmignore
+.travis.yml
+
+### matching
+*.log
+tsconfig*.json

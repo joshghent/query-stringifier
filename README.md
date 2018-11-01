@@ -39,6 +39,7 @@ qs.extract('http://test.com?food=pizza&bar=chocolate');
 
 ```
 $ npm test
+$ npm run test:coverage
 ```
 
 ## Documentation

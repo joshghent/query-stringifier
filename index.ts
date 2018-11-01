@@ -1,10 +1,6 @@
-'use strict';
-
-/**
- * A small library for build query strings
- * @class
- */
-const QueryString = function () {};
+interface options {
+    prefix: string
+}
 
 /**
  * Add the query stringify method
@@ -13,17 +9,10 @@ const QueryString = function () {};
  * @property {string} options.prefix - The prefix that should be joined to the resulted query string
  * @returns {string} Returns query-stringified object
  */
-QueryString.prototype.stringify = function (params, options) {
-    // If the options parameter was not defined then create it with some default values.
-    if (options === undefined) {
-        options = {
-            prefix: ''
-        };
-    }
-
+export const stringify = (params: object, options: options = {prefix: ''}): string => {
     // Create an array that will hold the stringified parameters
     // Each element will be key value pair like 'foo=bar'
-    const queryStringArray = [];
+    const queryStringArray: String[] = [];
 
     // Iterate through the parameters object that was passed to the method
     for (let key in params) {
@@ -45,14 +34,14 @@ QueryString.prototype.stringify = function (params, options) {
 
     // Otherwise return the query string prefixed with the options.prefix
     return options.prefix + queryStringArray.join('&');
-};
+}
 
 /**
  * Add the query stringify method
  * @param {string | any} queryStr - The query string to parse into an object. If any type other than string, just returns it
  * @returns {object} Returns query-string as object
  */
-QueryString.prototype.parse = function (queryStr) {
+export const parse = (queryStr: string): object => {
     let obj = Object.create(null);
 
     if (typeof queryStr !== 'string') {
@@ -92,7 +81,7 @@ QueryString.prototype.parse = function (queryStr) {
                 if (Array.isArray(obj[key])) {
                     obj[key].push(value); 
                 } else {
-                    let newArray = []; 
+                    let newArray: string[] = [];
                     newArray.push(obj[key]); 
                     newArray.push(value);
                     obj[key] = newArray; 
@@ -101,7 +90,6 @@ QueryString.prototype.parse = function (queryStr) {
             } else {
                 obj[key] = value;
             }
-            
         }
     });
 
@@ -113,14 +101,17 @@ QueryString.prototype.parse = function (queryStr) {
  * @param {string} url - url which contains
  * @returns {string} Extracted query string from url
  */
-QueryString.prototype.extract = function (url) {
-    const queryStringPosition = url.indexOf('?')
-    const isThereQueryString = queryStringPosition > -1
+export const extract = (url: string): string => {
+    const queryStringPosition: number = url.indexOf('?');
+    const isThereQueryString: boolean = queryStringPosition > -1;
 
-    if (!isThereQueryString) return ''
+    if (!isThereQueryString) return '';
 
     return url.substring(queryStringPosition + 1);
 }
 
-// Export the module
-module.exports = new QueryString();
+export default {
+    stringify,
+    parse,
+    extract
+}
